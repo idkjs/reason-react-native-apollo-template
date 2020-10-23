@@ -1,0 +1,55 @@
+{
+  "name": "@idkjs/reason-react-native-apollo-template",
+  "version": "0.63.3",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/idkjs/reason-react-native-apollo-template",
+  "license": "MIT",
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "react-native",
+    "react-native-template"
+  ],
+  "files": [
+    "*.md",
+    "*.js",
+    "template/*",
+    "!template/android/app/build",
+    "!template/ios/build",
+    "!template/ios/Pods"
+  ],
+  "devDependencies": {
+    "bs-platform": "^8.3.1",
+    "husky": "^4.0.0",
+    "lint-staged": "^10.0.0",
+    "npmpub": "^5.0.0",
+    "prettier": "^2.0.0"
+  },
+  "scripts": {
+    "prepare": "cd template && yarn",
+    "test": "cd template && yarn re:build && yarn test",
+    "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
+    "format:re": "find . -name \"*.re\" -or -name \"*.rei\" | grep -v \"node_modules\" | xargs bsrefmt --in-place",
+    "format": "yarn format:most && yarn format:re",
+    "release": "npmpub"
+  },
+  "prettier": {
+    "trailingComma": "all"
+  },
+  "lint-staged": {
+    "*.{md,json,js,css}": [
+      "prettier --write"
+    ],
+    "*.{re,rei}": [
+      "bsrefmt --in-place"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
