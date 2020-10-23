@@ -2,8 +2,8 @@
  * @format
  */
 
-import { AppRegistry } from "react-native";
-import App from "./App";
+import {AppRegistry} from 'react-native';
+import App from './App';
 
 const APP_NAME = "ProjectName";
 

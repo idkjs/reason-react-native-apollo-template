@@ -11,3 +11,11 @@ package-lock.json
 
 # generated from template/.gitignore
 template/.npmignore
+
+
+# bucklescript
+/lib
+.merlin
+.bsb.lock
+/lib/bs/
+.graphql_ppx_cache

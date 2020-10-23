@@ -1,3 +1,9 @@
-# Tell github that .re and .rei files are Reason, sometimes recognized as C/C++
+# Xcode pbxproj are text
+*.pbxproj -text
+
+# .re and .rei files are Reason, sometimes recognized as C/C++ (on GitHub)
 *.re linguist-language=Reason
 *.rei linguist-language=Reason
+
+# specific for windows script files
+*.bat text eol=crlf
