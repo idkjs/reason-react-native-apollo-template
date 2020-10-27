@@ -6,6 +6,9 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+     "re:clean": "bsb -clean-world",
+    "re:watch": "bsb -clean-world -make-world -w",
+    "re:build": "bsb -clean-world -make-world",
     "test": "jest",
     "lint": "eslint ."
   },
