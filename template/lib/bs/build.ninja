@@ -1,0 +1,16 @@
+g_root = /Users/mandalarian/Downloads/reason-react-native-apollo-template/template
+rule astj
+  command = /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/bs-platform/darwin/bsc.exe  -bs-v 8.3.3,1606830958.82 -ppx /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/@reasonml-community/graphql-ppx/ppx -bs-jsx 3  -bs-ast -o $out $i
+o src/App.ast : astj $g_root/src/App.res
+rule deps
+  command = /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/bs-platform/darwin/bsb_helper.exe -hash 12cb3cf8221634f2a6ec24790d200e6c $in
+  restat = 1
+o src/App.d : deps src/App.ast
+rule mij
+  command = /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/bs-platform/darwin/bsc.exe -I src -I /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/reason-react/lib/ocaml -I /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/reason-react-native/lib/ocaml -I /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/reason-promise/lib/ocaml -I /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/reason-apollo-client/lib/ocaml -I /Users/mandalarian/Downloads/reason-react-native-apollo-template/template/node_modules/@reasonml-community/graphql-ppx/lib/ocaml   -bs-package-name ProjectName -bs-package-output es6:$in_d:.bs.js -o $out $i
+  dyndep = 1
+  restat = 1
+o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/Client.ast : astj $g_root/src/Client.res
+o src/Client.d : deps src/Client.ast
+o src/Client.cmj src/Client.cmi ../../src/Client.bs.js : mij src/Client.ast
