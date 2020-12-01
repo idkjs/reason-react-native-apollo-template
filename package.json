@@ -1,6 +1,6 @@
 {
   "name": "@idkjs/reason-react-native-apollo-template",
-  "version": "0.63.3",
+  "version": "0.64.0",
   "publishConfig": {
     "access": "public"
   },
@@ -34,7 +34,7 @@
     "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
     "format:re": "find . -name \"*.re\" -or -name \"*.rei\" | grep -v \"node_modules\" | xargs bsrefmt --in-place",
     "format": "yarn format:most && yarn format:re",
-   "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
     "release": "npmpub"
